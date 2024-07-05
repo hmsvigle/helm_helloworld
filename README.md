@@ -3,6 +3,27 @@
   * Replicated helm_ngil repo
   * application structure is as bellow
   ````yaml
+	|-- apps
+	|   `-- hello-world
+	|       |-- configmap.yaml
+	|       `-- values.yaml
+	|-- chart
+	|   |-- Chart.yaml
+	|   |-- README.md
+	|   |-- hello-world
+	|   |   |-- configmap.yaml
+	|   |   |-- environments
+	|   |   |   |-- reg-values.yaml
+	|   |   |   `-- stg-values.yaml
+	|   |   `-- values.yaml
+	|   `-- templates
+	|       |-- _helpers.tpl
+	|       |-- configmap.yaml
+	|       |-- deployment.yaml
+	|       `-- service.yaml
+	`-- environments
+		|-- reg-values.yaml
+		`-- stg-values.yaml
 
   ````
 ## 2. Application files with global, static & overriding values
