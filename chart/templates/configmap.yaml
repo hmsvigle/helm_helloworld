@@ -6,4 +6,7 @@ metadata:
   labels:
     app: {{ .Values.appName }}
 data:
-{{ tpl (printf "%s/configmap.yaml" .Values.appNameGeneric | .Files.Get | indent 2) . }}
+{{- $configmapPath := printf "../apps/%s/configmap.yaml" .Values.appNameGeneric }}
+{{- printf "Debug: File Path - %s" $configmapPath | nindent 2 }}
+{{- printf "Debug: File Content - %s" (.Files.Get $configmapPath) | nindent 2 }}
+{{ tpl (.Files.Get $configmapPath) . | indent 2 }}
